@@ -54,3 +54,72 @@ console.log(`Listening on port ${PORT}...`);
 - We need to import (fs)
 
 3. Wehn load the page, we need to give permission to google chrome to open the page that will open as not secure coz we are not certificated to grant this permission globalwise.
+
+# Lesson 6. Helmet
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32702898
+
+- Check the info in helmet. This is used to protect our APIs.
+  https://helmetjs.github.io
+
+1. terminal
+   npm install helmet
+
+2. Require and use the helmet middleware. server.js:
+
+const helmet = require('helmet');
+app.use(helmet());
+
+- It has to be implemented over all the routes so it will affec them.
+
+# Lesson 7. Authentication vs Authorization
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32702899
+
+- failure request response:
+  401 - bad authentication
+  403 - no authorization
+
+# Lesson 8. Social Signing
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32702900
+
+# Lesson 9. API keys
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32702901
+
+N: Explanation how to get API key from google
+
+# Lesson 10. JWTTokens
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32702902
+
+# Lesson 11. The aith standards
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32708908
+
+# Lesson 12. OAUTH 2.0 Authorization Code Flow
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32708909
+
+# Lesson 13. OAUTH in Action with single sign in
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32708911
+
+# Lesson 14. Registering with Google Authorization Server
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32708912
+
+https://developers.google.com/identity/protocols/oauth2
+
+https://console.cloud.google.com/projectselector2/apis/dashboard?pli=1&supportedpurview=project
+
+N: Follow all the steps all the tutorial to create Google credentials
+
+# Lesson 15. Authentification Endpoints with middleware
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32712271
+
+# Lesson 16. Passport.js
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32726627
