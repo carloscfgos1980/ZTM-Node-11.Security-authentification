@@ -123,3 +123,81 @@ https://academy.zerotomastery.io/courses/1206554/lectures/32712271
 # Lesson 16. Passport.js
 
 https://academy.zerotomastery.io/courses/1206554/lectures/32726627
+
+1. Check the follow website:
+   https://www.passportjs.org
+
+2. Check for a strategy that works with google. In this case chose:
+   passport-google-oauth20
+
+3. Install in our project
+   npm install passport-google-oauth20
+
+# Lesson 17. Dotenv for Client Secret
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32726628
+
+1. Install dotenv
+   npm install dotenv
+
+2. create a .env file and copy there the secret info
+
+3. Require dotenv and creat a const that storage an object with the secret information
+   require('dotenv').config();
+
+const PORT = 3000;
+const config = {
+CLIENT_ID: process.env.CLIENT_ID,
+CLIENT_SECRET: process.env.CLIENT_SECRET
+};
+
+# Lesson 18. Authentification with Google and OAuth 1
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32731020
+
+# Lesson 19. Authentification with Google and OAuth 2
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32731788
+
+1. Require passport package and selected Strategy from passport.js framework:
+   const passport = require('passport');
+   const {Strategy} = require('passport-google-oauth20');
+
+2. Use password middleware:
+
+const AUTH_OPTIONS = {
+callbackURL: '/auth/google/callback',
+clientID: config.CLIENT_ID,
+clientSecret: config.CLIENT_SECRET
+};
+
+function verifyCallBack(accessToken, refreshToken, profile, done){
+console.log('Google profile', profile);
+done(null, profile);
+}
+
+passport.use( new Strategy(AUTH_OPTIONS, verifyCallBack))
+
+3. Start using password in the app:
+   app.use(helmet());
+   app.use(passport.initialize());
+
+- This is placed riht after helmet middleware
+
+4. Rest is to long to explain. It works though... not really know how
+
+# Lesson 20. Cookie based authentification
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32731790
+
+N: The authentication could be done also with cookies(info that Google storage)
+
+# Lesson 21. Sessions
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32744954
+
+We use sessions to store temporary data as the user uses that application
+
+# Lesson 22. Server VS Client side sessions With Cookies
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32744959
