@@ -282,3 +282,17 @@ done(null, id);
    function checkLoggedIn(req, res, next){
    console.log('Current user is:', req.user);
    const isLoggedIn = req.isAuthenticated() && req.user;
+
+# Lesson 29. Implement logout
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32756726
+
+There was a bug with the tutorial and I fixed by consolting this website:
+https://forum.freecodecamp.org/t/logging-a-user-out-passport-logout-now-requires-a-callback-function/514755
+
+app.get('/auth/logout', (req, res)=>{
+req.logout(function(err) {
+if (err) { return next(err); }
+})
+return res.redirect('/');
+});

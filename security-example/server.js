@@ -95,7 +95,12 @@ app.get('/auth/google/callback',
   }
 );
 
-app.get('/auth/logout', (req, res)=>{});
+app.get('/auth/logout', (req, res)=>{
+  req.logout(function(err) {
+        if (err) { return next(err); }
+      })
+  return res.redirect('/');
+});
 
 app.get('/secret', checkLoggedIn, (req, res)=>{
   return res.send('Your secret value is 42!');
