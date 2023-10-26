@@ -262,3 +262,23 @@ https://academy.zerotomastery.io/courses/1206554/lectures/32744970
 # Lesson 27. Reading and writing the OAuth session II
 
 https://academy.zerotomastery.io/courses/1206554/lectures/32746330
+
+# Lesson 28. Resctricting access to endpoint
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32747593
+
+1. Read and save session to cookie
+   // Save the session to cookie
+   passport.serializeUser((user, done)=>{
+   done(null, user.id);
+   });
+
+// Read the sesion from the cookie
+passport.deserializeUser((id, done)=>{
+done(null, id);
+});
+
+2. check if the cookie id is ok and then grant acces to '/secret' endpoint
+   function checkLoggedIn(req, res, next){
+   console.log('Current user is:', req.user);
+   const isLoggedIn = req.isAuthenticated() && req.user;
