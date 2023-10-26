@@ -201,3 +201,64 @@ We use sessions to store temporary data as the user uses that application
 # Lesson 22. Server VS Client side sessions With Cookies
 
 https://academy.zerotomastery.io/courses/1206554/lectures/32744959
+
+# Lesson 23. Session middleware in Express
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32744964
+
+# Lesson 24. Setting up OAuth Cookie Session
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32744966
+
+1. install cookie-session package:
+   npm install cookie-session
+
+2. Add the 2 cookies key to .env
+   COOKIE_KEY_1=secretkey
+   COOKIE_KEY_2=secretkeyforrotation
+
+3. Implement the use of the cookie keys
+   server.js:
+
+const cookieSession = require('cookie-session');
+
+const config = {
+CLIENT_ID: process.env.CLIENT_ID,
+CLIENT_SECRET: process.env.CLIENT_SECRET,
+COOKIE_KEY_1: process.env.COOKIE_KEY_1,
+COOKIE_KEY_2: process.env.COOKIE_KEY_2,
+};
+
+app.use(cookieSession({
+name: 'session',
+maxAge: 24 _ 60 _ 60 \* 1000,
+key:[config.COOKIE_KEY_1, config.COOKIE_KEY_2]
+}));
+
+# Lesson 25. Sessions with the latest version of passport
+
+https://academy.zerotomastery.io/courses/1206554/lectures/49849299
+
+We implement a middleware to go around an issue with passporjs in the new verions:
+
+app.use((req, res, next)=>{
+if(req.session && !req.session.regenerate){
+req.session.regenerate = (cb)=>{
+cb();
+}
+}
+if(req.session && !req.session.save){
+req.session.save = (cb)=>{
+cb();
+}
+}
+next();
+});
+
+# Lesson 26. Reading and writing the OAuth session I
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32744970
+
+# Lesson 27. Reading and writing the OAuth session II
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32746330
