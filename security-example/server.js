@@ -95,11 +95,13 @@ app.get('/auth/google/callback',
   }
 );
 
-app.get('/auth/logout', (req, res)=>{
-  req.logout(function(err) {
-        if (err) { return next(err); }
-      })
-  return res.redirect('/');
+app.get('/auth/logout', (req, res,next)=>{
+  req.logout((err) => {
+        if (err) { 
+          return next(err); 
+        }
+        res.redirect('/');
+      }) 
 });
 
 app.get('/secret', checkLoggedIn, (req, res)=>{

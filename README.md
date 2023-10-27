@@ -296,3 +296,22 @@ if (err) { return next(err); }
 })
 return res.redirect('/');
 });
+
+# Lesson 30. Asynchronous logout
+
+https://academy.zerotomastery.io/courses/1206554/lectures/49847305
+
+N: Fixing the call issue in logout function
+
+# Lesson 31. Experimenting with Fake sessions
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32756727
+
+# Lesson 32. Wrap up and next step
+
+https://academy.zerotomastery.io/courses/1206554/lectures/32756728
+
+# Lesson 33. Resource: Security Cheat Sheet
+
+To learn more about Node.js security best practices, I recommend this resource:
+https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html
